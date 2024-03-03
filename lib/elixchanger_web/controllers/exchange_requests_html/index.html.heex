@@ -1,1 +1,9 @@
 this is where the list of exchanges will go
+
+<table class="table">
+  <%= for ex_request <- @exchange_requests do %>
+    <tr>
+      <td><b><%= ex_request.id %></b></td>
+    </tr>
+  <% end %>
+</table>
