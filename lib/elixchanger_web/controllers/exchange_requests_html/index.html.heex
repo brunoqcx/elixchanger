@@ -3,7 +3,22 @@ this is where the list of exchanges will go
 <table class="table">
   <%= for ex_request <- @exchange_requests do %>
     <tr>
-      <td><b><%= ex_request.id %></b></td>
+      <td><b>id: <%= ex_request.id %></b></td>
+    </tr>
+    <tr>
+      <td><b>initial_currency: <%= ex_request.initial_currency %></b></td>
+    </tr>
+    <tr>
+      <td><b>initial_value_cents: <%= ex_request.initial_value_cents %></b></td>
+    </tr>
+    <tr>
+      <td><b>exchange_rate: <%= ex_request.exchange_rate %></b></td>
+    </tr>
+    <tr>
+      <td><b><%= ex_request.end_currency %></b></td>
+    </tr>
+    <tr>
+      <td><b><%= ex_request.end_value_cents %></b></td>
     </tr>
   <% end %>
 </table>

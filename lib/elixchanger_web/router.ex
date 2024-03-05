@@ -18,6 +18,8 @@ defmodule ElixchangerWeb.Router do
     pipe_through :browser
 
     get "/", ExchangeRequestsController, :index
+    get "/new", ExchangeRequestsController, :new
+    post "/exchange_requests", ExchangeRequestsController, :create
   end
 
   # Other scopes may use custom stacks.
