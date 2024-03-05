@@ -1,9 +1,8 @@
 <.form :let={f} for={@changeset} action={~p"/exchange_requests"}>
   <.input field={f[:initial_currency]} label="initial currency" />
-  <.input field={f[:initial_value_cents]} label="initial value in cents" />
-  <.input field={f[:exchange_rate]} label="exchange rate" />
-  <.input field={f[:end_currency]} label="end currency" />
-  <.input field={f[:end_value_cents]} label="end value in cents" />
 
+  <.input field={f[:initial_value_cents]} label="initial value in cents" />
+
+  <.input field={f[:end_currency]} label="end currency" />
   <button>Submit </button>
 </.form>

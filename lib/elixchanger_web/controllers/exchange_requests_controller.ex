@@ -2,9 +2,11 @@ defmodule ElixchangerWeb.ExchangeRequestsController do
   use ElixchangerWeb, :controller
   alias Elixchanger.Repo
   alias Elixchanger.ExchangeRequest
+  import Ecto.Query
 
   def index(conn, _params) do
-    exchange_requests = Repo.all(ExchangeRequest)
+    query = from ExchangeRequest, order_by: [desc: :id]
+    exchange_requests = Repo.all(query)
     render(conn, :index, exchange_requests: exchange_requests)
   end
 
@@ -16,12 +18,12 @@ defmodule ElixchangerWeb.ExchangeRequestsController do
   def create(conn, %{"exchange_request" => params}) do
     changeset = ExchangeRequest.changeset(%ExchangeRequest{}, params)
     case Repo.insert(changeset) do
-    {:ok, exchange_request} ->
-    conn
-    |> put_flash(:info, "exchange_request #{exchange_request.id} created!")
-    |> redirect(to: "/")
-    {:error, changeset} ->
-    render(conn, "new.html", changeset: changeset)
+      {:ok, exchange_request} ->
+        conn
+        |> put_flash(:info, "exchange_request #{exchange_request.id} created!")
+        |> redirect(to: "/")
+      {:error, changeset} ->
+        render(conn, "new.html", changeset: changeset)
     end
   end
 end
