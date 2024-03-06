@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :elixchanger, Elixchanger.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "password",
   hostname: "localhost",
   database: "elixchanger_dev",
   stacktrace: true,

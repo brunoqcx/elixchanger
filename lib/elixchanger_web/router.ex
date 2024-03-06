@@ -22,6 +22,13 @@ defmodule ElixchangerWeb.Router do
     post "/exchange_requests", ExchangeRequestsController, :create
   end
 
+  scope "/auth", ElixchangerWeb do
+     pipe_through :browser
+
+     get "/:provider", AuthController, :request
+     get "/:provider/callback", AuthController, :callback
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", ElixchangerWeb do
   #   pipe_through :api
