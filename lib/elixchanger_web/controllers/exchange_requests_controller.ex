@@ -3,6 +3,9 @@ defmodule ElixchangerWeb.ExchangeRequestsController do
   alias Elixchanger.Repo
   alias Elixchanger.ExchangeRequest
   import Ecto.Query
+  alias ElixchangerWeb.Plugs.RequireAuthentication
+
+  plug RequireAuthentication when action in [:new, :create]
 
   def index(conn, _params) do
     query = from ExchangeRequest, order_by: [desc: :id]
