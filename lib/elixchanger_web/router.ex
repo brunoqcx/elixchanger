@@ -8,6 +8,7 @@ defmodule ElixchangerWeb.Router do
     plug :put_root_layout, html: {ElixchangerWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug ElixchangerWeb.Plugs.SetUser
   end
 
   pipeline :api do
@@ -24,6 +25,8 @@ defmodule ElixchangerWeb.Router do
 
   scope "/auth", ElixchangerWeb do
      pipe_through :browser
+
+     get "/logout", AuthController, :logout
 
      get "/:provider", AuthController, :request
      get "/:provider/callback", AuthController, :callback

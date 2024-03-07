@@ -23,15 +23,3 @@ this is where the list of exchanges will go
   <% end %>
 </table>
 
-
-<ul class="right">
-    <%= if @conn.assigns[:user] do %>
-      <li>
-        <.link href={~p"/auth/signout"}>Sign out</.link>
-      </li>
-    <% else %>
-      <li>
-        <.link href={~p"/auth/google"}>Sign in</.link>
-      </li>
-    <% end%>
-</ul>
